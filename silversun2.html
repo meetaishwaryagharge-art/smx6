@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silversun Industrial Machines | SMX India</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* =============================================
+           ROOT — exact from cerliani.html
+        ============================================= */
+        :root {
+            --smx-blue:  #006699;
+            --smx-cyan:  #00a0e9;
+            --smx-green: #28a745;
+            --smx-dark:  #0b1d2e;
+            --glass-bg:  rgba(255, 255, 255, 0.95);
+        }
+
+        body { font-family: 'Montserrat', sans-serif; color: #444; overflow-x: hidden; background: #fcfcfc; }
+
+        /* =============================================
+           NAVBAR — exact from cerliani.html
+        ============================================= */
+        .navbar {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 15px 0;
+            transition: all 0.4s ease;
+        }
+        .nav-link { font-weight: 600; color: var(--smx-blue) !important; transition: 0.3s; }
+        .nav-link:hover { color: var(--smx-cyan) !important; transform: translateY(-2px); }
+        .nav-link.active { color: var(--smx-cyan) !important; }
+        .btn-search {
+            border: 2px solid #006699;
+            color: #006699;
+            border-radius: 50px;
+            font-weight: bold;
+            padding: 5px 20px;
+            transition: 0.3s;
+        }
+        .btn-search:hover { background: #006699; color: white; }
+        .logo { height: 70px; }
+
+
+            /* HERO SECTION */
+
+.hero-carousel{
+background:url("https://5.imimg.com/data5/QE/QR/HL/SELLER-12879506/single-needle-direct-drive-ubt-lockstich-machine-500x500.jpg") center/cover no-repeat;
+padding:120px 0;
+position:relative;
+overflow:hidden;
+}
+
+.hero-carousel::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+120deg,
+rgba(0,102,153,0.85),
+rgba(0,160,233,0.75)
+);
+}
+
+.hero-carousel .container{
+position:relative;
+z-index:2;
+}
+
+.hero-title{
+font-size:4rem;
+font-weight:700;
+}
+
+.machine-img{
+filter:drop-shadow(0 30px 50px rgba(0,0,0,0.3));
+animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-20px)}
+}
+        /* =============================================
+           HERO SECTION
+        ============================================= 
+        .hero-carousel {
+            background: url("https://5.imimg.com/data5/DH/DT/DQ/SELLER-12879506/heavy-duty-single-needle-lock-stitch-machine-with-big-hook-500x500.jpg") center/cover no-repeat;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-carousel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(0,102,153,0.88), rgba(0,160,233,0.78));
+        }
+        .hero-carousel .container { position: relative; z-index: 2; }
+        .hero-title { font-size: 4rem; font-weight: 700; }
+        .machine-img {
+            filter: drop-shadow(0 30px 50px rgba(0,0,0,0.3));
+            animation: float 6s ease-in-out infinite;
+            max-height: 310px;
+        }
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50%      { transform: translateY(-20px); }
+        }*/
+
+        /* =============================================
+           INTRO STRIP — exact from cerliani.html
+        ============================================= */
+        .intro-strip { background: #28a745; border-bottom: 1px solid #eee; padding: 32px 0; }
+        .intro-item { border-right: 1px solid rgba(255,255,255,0.25); }
+        .intro-item:last-child { border-right: none; }
+        .intro-item i  { color: white; font-size: 1.6rem; margin-bottom: 8px; }
+        .intro-item h6 { font-weight: 700; font-size: 0.85rem; color: white; margin-bottom: 2px; }
+        .intro-item p  { font-size: 0.78rem; color: white; margin: 0; }
+
+        /* =============================================
+           ABOUT SILVERSUN
+        ============================================= */
+        .about-section { background: #f8f9fa; padding: 65px 0; }
+        .section-label {
+            font-size: 11px; font-weight: 700; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--smx-cyan);
+            display: block; margin-bottom: 10px;
+        }
+        .accent-bar {
+            width: 50px; height: 4px;
+            background: linear-gradient(90deg, var(--smx-blue), var(--smx-cyan));
+            border-radius: 2px; margin-bottom: 22px;
+        }
+        .img-showcase { border-radius: 14px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,102,153,0.13); position: relative; }
+        .img-showcase img { width: 100%; height: 340px; object-fit: cover; display: block; }
+        .img-overlay-badge {
+            position: absolute; bottom: 20px; left: 20px;
+            background: rgba(0,102,153,0.92); color: white;
+            padding: 10px 18px; border-radius: 8px;
+            font-size: 12px; font-weight: 700;
+        }
+
+        /* =============================================
+           FILTER BAR — exact from cerliani.html
+        ============================================= */
+        .filter-bar {
+            background: white;
+            border-bottom: 1px solid #eee;
+            padding: 16px 0;
+            position: sticky; top: 88px; z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+        .filter-btn {
+            border: 1.5px solid #ddd; background: white; color: #555;
+            border-radius: 50px; padding: 6px 18px;
+            font-size: 12px; font-weight: 600; cursor: pointer;
+            transition: 0.25s; font-family: 'Montserrat', sans-serif;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--smx-blue); color: white; border-color: var(--smx-blue);
+        }
+        .results-count { font-size: 13px; color: #888; font-weight: 500; }
+
+        /* =============================================
+           PRODUCT GRID — exact from cerliani.html
+        ============================================= */
+        .product-section { background: #f4f6f9; padding: 55px 0 75px; }
+
+        .product-card {
+            background: white; border-radius: 16px;
+            border: 1.5px solid #eee; overflow: hidden;
+            height: 100%; display: flex; flex-direction: column;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 22px 50px rgba(0,102,153,0.13);
+            border-color: var(--smx-cyan);
+        }
+        .product-img-wrap {
+            background: #f9fbfd; height: 210px;
+            display: flex; align-items: center; justify-content: center;
+            padding: 28px; position: relative; overflow: hidden;
+        }
+        .product-img-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; transition: 0.5s; }
+        .product-card:hover .product-img-wrap img { transform: scale(1.08); }
+
+        .prod-tag {
+            position: absolute; top: 12px; left: 12px;
+            background: var(--smx-cyan); color: white;
+            font-size: 10px; font-weight: 700;
+            padding: 3px 10px; border-radius: 50px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .prod-tag.lockstitch { background: var(--smx-blue); }
+        .prod-tag.overlock   { background: #c0392b; }
+        .prod-tag.special    { background: #e07b00; }
+
+        .product-body {
+            padding: 18px 20px 22px; flex: 1;
+            display: flex; flex-direction: column;
+            border-top: 1px solid #f0f0f0;
+        }
+        .product-body h3 { font-size: 14px; font-weight: 700; color: var(--smx-dark); margin-bottom: 7px; line-height: 1.45; }
+        .product-body p  { font-size: 12px; color: #888; line-height: 1.65; flex: 1; margin-bottom: 16px; }
+        .btn-enquire {
+            background: transparent; border: 1.5px solid var(--smx-blue);
+            color: var(--smx-blue); font-size: 12px; font-weight: 700;
+            border-radius: 50px; padding: 7px 18px; transition: 0.3s;
+            text-decoration: none; display: inline-block; align-self: flex-start;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-enquire:hover { background: var(--smx-blue); color: white; }
+
+        /* =============================================
+           WHY SILVERSUN DARK BANNER — exact cerliani.html
+        ============================================= */
+        .why-banner { background: var(--smx-blue); padding: 70px 0; color: white; }
+        .why-icon {
+            width: 65px; height: 65px;
+            background: rgba(0,160,233,0.15);
+            border: 1.5px solid rgba(0,160,233,0.3);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 18px;
+        }
+        .why-icon i { color: white; font-size: 1.5rem; }
+        .why-card { padding: 30px 20px; border-right: 1px solid rgba(255,255,255,0.08); }
+        .why-card:last-child { border-right: none; }
+        .why-card h6 { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; }
+        .why-card p  { font-size: 0.82rem; opacity: 0.65; line-height: 1.7; margin: 0; }
+
+        /* =============================================
+           FEATURES STRIP — green, exact cerliani.html
+        ============================================= */
+        .features-strip { background: var(--smx-green); padding: 45px 0; color: white; }
+        .fstrip-item { border-right: 1px solid rgba(255,255,255,0.2); }
+        .fstrip-item:last-child { border-right: none; }
+        .fstrip-icon {
+            width: 58px; height: 58px;
+            background: rgba(255,255,255,0.15); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 13px; font-size: 1.3rem;
+        }
+
+        /* =============================================
+           FOOTER — exact from cerliani.html  bg:#0b1d2e
+        ============================================= */
+        .main-footer {
+            background: #0b1d2e;
+            padding: 80px 0 20px;
+            position: relative;
+            color: white;
+        }
+        .footer-heading {
+            color: #ffffff;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: 30px; font-weight: 700;
+            border-bottom: 2px solid var(--smx-cyan);
+            display: inline-block; padding-bottom: 5px;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none; transition: 0.3s;
+            display: block; margin-bottom: 10px;
+        }
+        .footer-links a:hover { color: var(--smx-cyan); transform: translateX(5px); }
+        .footer-contact-info i { color: var(--smx-cyan); }
+        .main-footer .btn-outline-light { border-color: rgba(255,255,255,0.5); }
+        .main-footer .btn-outline-light:hover {
+            background-color: var(--smx-green); border-color: var(--smx-green);
+        }
+    </style>
+</head>
+<body>
+
+<!-- =============================================
+     NAVBAR — exact from cerliani.html
+============================================= -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="smx.jpg" class="logo" alt="SMX India">
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#smxNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="smxNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
+                <li class="nav-item"><a class="nav-link active" href="silversun.html">Silversun</a></li>
+                <li class="nav-item"><a class="nav-link" href="juki.html">Juki</a></li>
+                <li class="nav-item"><a class="nav-link" href="cerliani.html">Cerliani</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+            <a href="#" class="btn btn-search"><i class="fa-solid fa-magnifying-glass me-2"></i>Search</a>
+        </div>
+    </div>
+</nav>
+<!-- =============================================
+     HERO
+============================================= -->
+<header class="hero-carousel">
+
+<div class="container">
+<div class="row align-items-center">
+
+<div class="col-lg-6" data-aos="fade-right">
+
+<h1 class="hero-title text-white mb-4">
+Silversun<br>Industrial Machines
+</h1>
+
+<p class="lead text-white opacity-75 mb-4">
+High-performance industrial sewing machines for every garment application
+</p>
+<a href="#products" class="btn btn-light btn-lg rounded-pill fw-bold px-5" style="color:var(--smx-blue);">
+                    <i class="fa-solid fa-arrow-down me-2"></i>View Products
+                </a>
+</div>
+</div>
+</div>
+</header>
+<!-- =============================================
+     HERO
+============================================= 
+<header class="hero-carousel">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h1 class="hero-title text-white mb-4">Silversun<br>Industrial Machines</h1>
+                <p class="lead text-white opacity-75 mb-4">
+                    High-performance sewing machines for every garment application
+                </p>
+                <a href="#products" class="btn btn-light btn-lg rounded-pill fw-bold px-5" style="color:var(--smx-blue);">
+                    <i class="fa-solid fa-arrow-down me-2"></i>View Products
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</header>-->
+
+<!-- =============================================
+     INTRO STRIP — green, exact cerliani.html
+============================================= -->
+<div class="intro-strip">
+    <div class="container">
+        <div class="row text-center g-3">
+            <div class="col-6 col-md-3 intro-item" data-aos="fade-up" data-aos-delay="50">
+                <i class="fa-solid fa-industry mb-2 d-block"></i>
+                <h6>Taiwan Precision</h6>
+                <p>Japanese-grade engineering</p>
+            </div>
+            <div class="col-6 col-md-3 intro-item" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-circle-check mb-2 d-block"></i>
+                <h6>ISO Certified</h6>
+                <p>Industry Standard Quality</p>
+            </div>
+            <div class="col-6 col-md-3 intro-item" data-aos="fade-up" data-aos-delay="150">
+                <i class="fa-solid fa-truck-fast mb-2 d-block"></i>
+                <h6>Pan-India Delivery</h6>
+                <p>Fast & safe shipping</p>
+            </div>
+            <div class="col-6 col-md-3 intro-item" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-headset mb-2 d-block"></i>
+                <h6>AMC Support</h6>
+                <p>Certified service team</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =============================================
+     ABOUT SILVERSUN
+============================================= -->
+<section class="about-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="img-showcase">
+                    <img src="https://5.imimg.com/data5/DH/DT/DQ/SELLER-12879506/heavy-duty-single-needle-lock-stitch-machine-with-big-hook-500x500.jpg"
+                         alt="Silversun Machine"
+                         onerror="this.src='https://5.imimg.com/data5/ND/LC/OD/SELLER-12879506/single-needle-high-speed-direct-drive-full-lockstitch-machine.jpg'">
+                    <div class="img-overlay-badge"><i class="fa-solid fa-gear me-2"></i>Production Ready</div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <span class="section-label">About Silversun</span>
+                <div class="accent-bar"></div>
+                <h2 class="fw-bold mb-4" style="font-size:2rem; color:var(--smx-dark);">
+                    Built for Continuous<br>Production Environments
+                </h2>
+                <p style="font-size:0.92rem; color:#666; line-height:1.8;" class="mb-3">
+                    Silversun machines combine Japanese precision engineering with Taiwan manufacturing excellence. Engineered for the demands of modern garment factories, every model is tested to deliver unmatched speed, reliability, and stitch quality across shifts.
+                </p>
+                <p style="font-size:0.92rem; color:#666; line-height:1.8;" class="mb-4">
+                    SMX India is the authorized distributor of Silversun industrial sewing machines in Mumbai and across India, offering the complete range from high-speed lockstitch and overlock to special-purpose flatbed interlock machines.
+                </p>
+                <div class="d-flex gap-4 flex-wrap">
+                    <div>
+                        <h4 class="fw-bold mb-0" style="color:var(--smx-blue);">26+</h4>
+                        <small style="color:#888;">Models Available</small>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold mb-0" style="color:var(--smx-blue);">5500</h4>
+                        <small style="color:#888;">Max SPM Speed</small>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold mb-0" style="color:var(--smx-blue);">55+</h4>
+                        <small style="color:#888;">Years Trusted</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     FILTER BAR
+============================================= -->
+<div class="filter-bar" id="products">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <div class="d-flex gap-2 flex-wrap">
+            <button class="filter-btn active" onclick="filterCards('all', this)">All Machines</button>
+            <button class="filter-btn" onclick="filterCards('lockstitch', this)">Lockstitch</button>
+            <button class="filter-btn" onclick="filterCards('overlock', this)">Overlock</button>
+            <button class="filter-btn" onclick="filterCards('special', this)">Special Purpose</button>
+        </div>
+        <span class="results-count" id="results-count">Showing 8 products</span>
+    </div>
+</div>
+
+<!-- =============================================
+     PRODUCT GRID
+============================================= -->
+<section class="product-section">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- 1. SMX-6940D -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="lockstitch" data-aos="fade-up" data-aos-delay="50">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag lockstitch">Lockstitch</span>
+                        <img src="https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/ExtraLarge/silver-sun-single-needle-direc-20240703132146429.jpg"
+                             alt="SMX-6940D"
+                             onerror="this.src='https://5.imimg.com/data5/ND/LC/OD/SELLER-12879506/single-needle-high-speed-direct-drive-full-lockstitch-machine.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>SMX – 6940D / D3 / D9</h3>
+                        <p>Direct-drive single needle lockstitch with auto thread trimmer and back-tack. Ideal for light to medium fabrics. Speed: 5,000 SPM.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. SMX-8900 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="lockstitch" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag lockstitch">Lockstitch</span>
+                        <img src="https://5.imimg.com/data5/ND/LC/OD/SELLER-12879506/single-needle-high-speed-direct-drive-full-lockstitch-machine.jpg"
+                             alt="SMX-8900-D3"
+                             onerror="this.src='https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/ExtraLarge/silver-sun-single-needle-direc-20240703132146429.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>SMX – 8900 – D3</h3>
+                        <p>High-speed single needle lockstitch. Full direct-drive motor with auto thread trimmer and condensed stitch function.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. SMX-S81 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="lockstitch" data-aos="fade-up" data-aos-delay="150">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag lockstitch">Lockstitch</span>
+                        <img src="https://cpimg.tistatic.com/7960407/b/5/smx-s81-sewing-machine.png"
+                             alt="SMX-S81"
+                             onerror="this.src='https://5.imimg.com/data5/DH/DT/DQ/SELLER-12879506/heavy-duty-single-needle-lock-stitch-machine-with-big-hook-500x500.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>SMX – S81 / S81H</h3>
+                        <p>Direct-drive high-speed single needle lockstitch with automatic thread trimmer, needle positioner, and UBT function.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. SMX-S9/S10/SD10 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="lockstitch" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag lockstitch">Lockstitch</span>
+                        <img src="https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/Catalogue/silver-sun-high-speed-single-n-20240703131657549.jpg"
+                             alt="SMX-S9-S10-SD10"
+                             onerror="this.src='https://5.imimg.com/data5/ND/LC/OD/SELLER-12879506/single-needle-high-speed-direct-drive-full-lockstitch-machine.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>SMX – S9 / S10 / SD10</h3>
+                        <p>High-speed single needle lockstitch series. Multiple configurations for diverse garment production requirements and fabric types.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. SMX-0202 Heavy Duty -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="lockstitch" data-aos="fade-up" data-aos-delay="250">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag lockstitch">Lockstitch</span>
+                        <img src="https://5.imimg.com/data5/DH/DT/DQ/SELLER-12879506/heavy-duty-single-needle-lock-stitch-machine-with-big-hook-500x500.jpg"
+                             alt="SMX-0202"
+                             onerror="this.src='https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/ExtraLarge/silver-sun-single-needle-direc-20240703132146429.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>SMX – 0202 / D / D3</h3>
+                        <p>Heavy-duty single needle lockstitch with big hook. Designed for denim, leather, canvas, and other thick fabrics.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. SMX 0303/0306 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="lockstitch" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag lockstitch">Lockstitch</span>
+                        <img src="https://5.imimg.com/data5/ND/LC/OD/SELLER-12879506/single-needle-high-speed-direct-drive-full-lockstitch-machine.jpg"
+                             alt="SMX-0303-0306"
+                             onerror="this.src='https://cpimg.tistatic.com/7960407/b/5/smx-s81-sewing-machine.png'">
+                    </div>
+                    <div class="product-body">
+                        <h3>SMX – 0303 / 0306 / D / D3</h3>
+                        <p>Single needle compound-feed lockstitch for upholstery, bags, and heavy garments. Smooth feed on thick multi-layer work.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. SMX 3-Thread Overlock -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="overlock" data-aos="fade-up" data-aos-delay="350">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag overlock">Overlock</span>
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2022/12/LR/PU/ME/12879506/silversun-3-thread-overlock-machine-500x500.jpg"
+                             alt="SMX 3-Thread Overlock"
+                             onerror="this.src='https://5.imimg.com/data5/ND/LC/OD/SELLER-12879506/single-needle-high-speed-direct-drive-full-lockstitch-machine.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>SMX – 3 Thread Overlock</h3>
+                        <p>High-speed 3-thread overlock for clean seam finishing. Suitable for knits, wovens, and lightweight stretch fabrics. Speed: 6,500 SPM.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. SMX 5-Thread Overlock -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="overlock" data-aos="fade-up" data-aos-delay="400">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag overlock">Overlock</span>
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/296014574/FX/RJ/CA/12879506/silversun-5-thread-overlock-machine.jpg"
+                             alt="SMX 5-Thread Overlock"
+                             onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2022/12/LR/PU/ME/12879506/silversun-3-thread-overlock-machine-500x500.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>SMX – 5 Thread Overlock</h3>
+                        <p>5-thread safety stitch overlock machine. Combines chain stitch and overlock for superior seam strength in sportswear and knitwear.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. SMX 1510D/1520D -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="lockstitch" data-aos="fade-up" data-aos-delay="450">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag lockstitch">Lockstitch</span>
+                        <img src="https://cpimg.tistatic.com/7960407/b/5/smx-s81-sewing-machine.png"
+                             alt="SMX-1510D-1520D"
+                             onerror="this.src='https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/ExtraLarge/silver-sun-single-needle-direc-20240703132146429.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>SMX – 1510D / 1520D</h3>
+                        <p>Direct-drive lockstitch with extra-large hook capacity. Ideal for heavy stitching applications with high thread consumption requirements.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. SMX Flatbed Interlock -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="special" data-aos="fade-up" data-aos-delay="500">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag special">Special Purpose</span>
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/LN/MZ/YF/12879506/silversun-flat-bed-interlock-machine-500x500.jpg"
+                             alt="SMX Flatbed Interlock"
+                             onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2022/12/LR/PU/ME/12879506/silversun-3-thread-overlock-machine-500x500.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>SMX – Flatbed Interlock</h3>
+                        <p>Flatbed interlock for sportswear and activewear. Produces flat, comfortable seams on stretch fabrics with decorative cover stitch.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. SMX 0202/0/03 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="lockstitch" data-aos="fade-up" data-aos-delay="550">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag lockstitch">Lockstitch</span>
+                        <img src="https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/Catalogue/silver-sun-high-speed-single-n-20240703131657549.jpg"
+                             alt="SMX-0202-0-03"
+                             onerror="this.src='https://5.imimg.com/data5/DH/DT/DQ/SELLER-12879506/heavy-duty-single-needle-lock-stitch-machine-with-big-hook-500x500.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>SMX – 0202 / 0 / 03</h3>
+                        <p>Versatile single needle lockstitch for medium to heavy garment applications. Easy adjustment for diverse fabric thickness and thread types.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. SMX UBT Direct Drive -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="lockstitch" data-aos="fade-up" data-aos-delay="600">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag lockstitch">Lockstitch</span>
+                        <img src="https://5.imimg.com/data5/QE/QR/HL/SELLER-12879506/single-needle-direct-drive-ubt-lockstich-machine-500x500.jpg"
+                             alt="SMX UBT Direct Drive"
+                             onerror="this.src='https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/ExtraLarge/silver-sun-single-needle-direc-20240703132146429.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>SMX – Single Needle UBT Direct Drive</h3>
+                        <p>High-speed lockstitch with Under Bed Trimmer (UBT) and direct-drive motor. Silent, energy-efficient, and minimal maintenance required.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /row -->
+    </div>
+</section>
+
+<!-- =============================================
+     WHY SILVERSUN — dark banner, exact cerliani.html
+============================================= -->
+<section class="why-banner">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="section-label" style="color:var(--smx-cyan);">The Silversun Difference</span>
+            <h2 class="fw-bold" style="font-size:2rem;">Built for Industrial Performance</h2>
+        </div>
+        <div class="row g-0 text-center">
+            <div class="col-md-3 why-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="why-icon mx-auto"><i class="fa-solid fa-bolt-lightning"></i></div>
+                <h6>High Speed</h6>
+                <p>Up to 5,500 SPM on lockstitch models. Zero skip stitches even at continuous peak operating speed.</p>
+            </div>
+            <div class="col-md-3 why-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="why-icon mx-auto"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+                <h6>Direct-Drive Motors</h6>
+                <p>Energy-saving direct-drive technology — quieter, cooler, and lower maintenance than clutch motor machines.</p>
+            </div>
+            <div class="col-md-3 why-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="why-icon mx-auto"><i class="fa-solid fa-scissors"></i></div>
+                <h6>Auto Thread Trimmer</h6>
+                <p>Built-in automatic thread trimmer and back-tack on all models for faster, cleaner production output.</p>
+            </div>
+            <div class="col-md-3 why-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="why-icon mx-auto"><i class="fa-solid fa-layer-group"></i></div>
+                <h6>Every Fabric Type</h6>
+                <p>From delicate chiffon to heavy denim — Silversun has a dedicated model for every fabric and stitch requirement.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     FEATURES STRIP — green, exact cerliani.html
+============================================= -->
+<section class="features-strip">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-md-4 fstrip-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="fstrip-icon"><i class="fa-solid fa-globe"></i></div>
+                <h6 class="fw-bold mb-1">Global Importers</h6>
+                <p class="small opacity-75 mb-0">Sourcing best-in-class machines from Japan, Taiwan &amp; Europe</p>
+            </div>
+            <div class="col-md-4 fstrip-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="fstrip-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <h6 class="fw-bold mb-1">Expert Service</h6>
+                <p class="small opacity-75 mb-0">Certified technicians, AMC contracts &amp; genuine spare parts</p>
+            </div>
+            <div class="col-md-4 fstrip-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="fstrip-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h6 class="fw-bold mb-1">Results Driven</h6>
+                <p class="small opacity-75 mb-0">98% customer satisfaction across India since 1970</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     FOOTER — exact from cerliani.html  bg:#0b1d2e
+============================================= -->
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <h6 class="footer-heading">SMX</h6>
+                <p class="opacity-75">Leading the Indian market with premium industrial sewing and embroidery technology since 1970.</p>
+                <div class="d-flex gap-3 mt-4">
+                    <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 footer-links">
+                <h6 class="footer-heading">Company</h6>
+                <a href="index.html">Home</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="#">Our Brands</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="col-lg-6 footer-contact-info">
+                <h6 class="footer-heading">Support</h6>
+                <p class="mb-2"><i class="fa-solid fa-envelope me-2"></i> Smxindia15@gmail.com</p>
+                <p class="mb-2"><i class="fa-solid fa-phone me-2"></i> 7506625436 / 9324613436</p>
+                <p class="mb-2"><i class="fa-solid fa-location-dot me-2"></i> The Tarun Plastic Estate, Andheri East,<br> Mumbai, Maharashtra 400069</p>
+            </div>
+        </div>
+        <div class="text-center pt-4 mt-4 border-top border-secondary">
+            <p class="small opacity-50 mb-0">&copy; 2026 SMX India. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });
+
+    function filterCards(category, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const items = document.querySelectorAll('.product-item');
+        let count = 0;
+        items.forEach(item => {
+            const match = category === 'all' || item.dataset.category === category;
+            item.style.display = match ? '' : 'none';
+            if (match) count++;
+        });
+        document.getElementById('results-count').textContent =
+            `Showing ${count} product${count !== 1 ? 's' : ''}`;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juki Industrial Machines | SMX India</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* =============================================
+           ROOT — exact from cerliani.html / index.html
+        ============================================= */
+        :root {
+            --smx-blue:  #006699;
+            --smx-cyan:  #00a0e9;
+            --smx-green: #28a745;
+            --smx-dark:  #0b1d2e;
+            --glass-bg:  rgba(255, 255, 255, 0.95);
+        }
+
+        body { font-family: 'Montserrat', sans-serif; color: #444; overflow-x: hidden; background: #fcfcfc; }
+
+        /* =============================================
+           NAVBAR — exact from cerliani.html
+        ============================================= */
+        .navbar {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 15px 0;
+            transition: all 0.4s ease;
+        }
+        .nav-link { font-weight: 600; color: var(--smx-blue) !important; transition: 0.3s; }
+        .nav-link:hover { color: var(--smx-cyan) !important; transform: translateY(-2px); }
+        .nav-link.active { color: var(--smx-cyan) !important; }
+        .btn-search {
+            border: 2px solid #006699;
+            color: #006699;
+            border-radius: 50px;
+            font-weight: bold;
+            padding: 5px 20px;
+            transition: 0.3s;
+        }
+        .btn-search:hover { background: #006699; color: white; }
+        .logo { height: 70px; }
+
+        /* =============================================
+           HERO SECTION
+        ============================================= */
+        .hero-carousel {
+            background: url("data:image/jpeg;base64,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") center/cover no-repeat;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-carousel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(0,102,153,0.88), rgba(0,160,233,0.78));
+        }
+        .hero-carousel .container { position: relative; z-index: 2; }
+        .hero-title { font-size: 4rem; font-weight: 700; }
+        .machine-img {
+            filter: drop-shadow(0 30px 50px rgba(0,0,0,0.3));
+            animation: float 6s ease-in-out infinite;
+            max-height: 320px;
+        }
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* =============================================
+           INTRO STRIP — exact from cerliani.html
+        ============================================= */
+        .intro-strip { background: #28a745; border-bottom: 1px solid #eee; padding: 32px 0; }
+        .intro-item { border-right: 1px solid rgba(255,255,255,0.25); }
+        .intro-item:last-child { border-right: none; }
+        .intro-item i { color: white; font-size: 1.6rem; margin-bottom: 8px; }
+        .intro-item h6 { font-weight: 700; font-size: 0.85rem; color: white; margin-bottom: 2px; }
+        .intro-item p { font-size: 0.78rem; color: white; margin: 0; }
+
+        /* =============================================
+           ABOUT JUKI
+        ============================================= */
+        .about-section { background: #f8f9fa; padding: 65px 0; }
+        .section-label {
+            font-size: 11px; font-weight: 700; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--smx-cyan);
+            display: block; margin-bottom: 10px;
+        }
+        .accent-bar {
+            width: 50px; height: 4px;
+            background: linear-gradient(90deg, var(--smx-blue), var(--smx-cyan));
+            border-radius: 2px; margin-bottom: 22px;
+        }
+        .img-showcase { border-radius: 14px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,102,153,0.13); position: relative; }
+        .img-showcase img { width: 100%; height: 340px; object-fit: cover; display: block; }
+        .img-overlay-badge {
+            position: absolute; bottom: 20px; left: 20px;
+            background: rgba(0,102,153,0.92); color: white;
+            padding: 10px 18px; border-radius: 8px;
+            font-size: 12px; font-weight: 700;
+        }
+
+        /* =============================================
+           FILTER BAR
+        ============================================= */
+        .filter-bar {
+            background: white;
+            border-bottom: 1px solid #eee;
+            padding: 16px 0;
+            position: sticky; top: 88px; z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+        .filter-btn {
+            border: 1.5px solid #ddd; background: white; color: #555;
+            border-radius: 50px; padding: 6px 18px;
+            font-size: 12px; font-weight: 600; cursor: pointer;
+            transition: 0.25s; font-family: 'Montserrat', sans-serif;
+        }
+        .filter-btn:hover, .filter-btn.active { background: var(--smx-blue); color: white; border-color: var(--smx-blue); }
+        .results-count { font-size: 13px; color: #888; font-weight: 500; }
+
+        /* =============================================
+           PRODUCT GRID
+        ============================================= */
+        .product-section { background: #f4f6f9; padding: 55px 0 75px; }
+
+        .product-card {
+            background: white; border-radius: 16px;
+            border: 1.5px solid #eee; overflow: hidden;
+            height: 100%; display: flex; flex-direction: column;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 22px 50px rgba(0,102,153,0.13);
+            border-color: var(--smx-cyan);
+        }
+        .product-img-wrap {
+            background: #f9fbfd; height: 210px;
+            display: flex; align-items: center; justify-content: center;
+            padding: 28px; position: relative; overflow: hidden;
+        }
+        .product-img-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; transition: 0.5s; }
+        .product-card:hover .product-img-wrap img { transform: scale(1.08); }
+
+        .prod-tag {
+            position: absolute; top: 12px; left: 12px;
+            background: var(--smx-cyan); color: white;
+            font-size: 10px; font-weight: 700;
+            padding: 3px 10px; border-radius: 50px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .prod-tag.lockstitch  { background: var(--smx-blue); }
+        .prod-tag.overlock    { background: #c0392b; }
+        .prod-tag.bartack     { background: #e07b00; }
+        .prod-tag.special     { background: #7b2fbe; }
+
+        .product-body {
+            padding: 18px 20px 22px; flex: 1;
+            display: flex; flex-direction: column;
+            border-top: 1px solid #f0f0f0;
+        }
+        .product-body h3 { font-size: 14px; font-weight: 700; color: var(--smx-dark); margin-bottom: 7px; line-height: 1.45; }
+        .product-body p { font-size: 12px; color: #888; line-height: 1.65; flex: 1; margin-bottom: 16px; }
+        .btn-enquire {
+            background: transparent; border: 1.5px solid var(--smx-blue);
+            color: var(--smx-blue); font-size: 12px; font-weight: 700;
+            border-radius: 50px; padding: 7px 18px; transition: 0.3s;
+            text-decoration: none; display: inline-block; align-self: flex-start;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-enquire:hover { background: var(--smx-blue); color: white; }
+
+        /* =============================================
+           WHY JUKI DARK BANNER
+        ============================================= */
+        .why-banner { background: var(--smx-blue); padding: 70px 0; color: white; }
+        .why-icon {
+            width: 65px; height: 65px;
+            background: rgba(0,160,233,0.15);
+            border: 1.5px solid rgba(0,160,233,0.3);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 18px;
+        }
+        .why-icon i { color: white; font-size: 1.5rem; }
+        .why-card { padding: 30px 20px; border-right: 1px solid rgba(255,255,255,0.08); }
+        .why-card:last-child { border-right: none; }
+        .why-card h6 { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; }
+        .why-card p { font-size: 0.82rem; opacity: 0.65; line-height: 1.7; margin: 0; }
+
+        /* =============================================
+           FEATURES STRIP — green (exact cerliani.html)
+        ============================================= */
+        .features-strip { background: var(--smx-green); padding: 45px 0; color: white; }
+        .fstrip-item { border-right: 1px solid rgba(255,255,255,0.2); }
+        .fstrip-item:last-child { border-right: none; }
+        .fstrip-icon {
+            width: 58px; height: 58px;
+            background: rgba(255,255,255,0.15); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 13px; font-size: 1.3rem;
+        }
+
+        /* =============================================
+           FOOTER — exact from cerliani.html
+        ============================================= */
+        .main-footer {
+            background: #0b1d2e;
+            padding: 80px 0 20px;
+            position: relative;
+            color: white;
+        }
+        .footer-heading {
+            color: #ffffff;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: 30px; font-weight: 700;
+            border-bottom: 2px solid var(--smx-cyan);
+            display: inline-block; padding-bottom: 5px;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none; transition: 0.3s;
+            display: block; margin-bottom: 10px;
+        }
+        .footer-links a:hover { color: var(--smx-cyan); transform: translateX(5px); }
+        .footer-contact-info i { color: var(--smx-cyan); }
+        .main-footer .btn-outline-light { border-color: rgba(255,255,255,0.5); }
+        .main-footer .btn-outline-light:hover { background-color: var(--smx-green); border-color: var(--smx-green); }
+    </style>
+</head>
+<body>
+
+<!-- =============================================
+     NAVBAR — exact from cerliani.html
+============================================= -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="smx.jpg" class="logo" alt="SMX India">
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#smxNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="smxNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="silversun.html">Silversun</a></li>
+              
+                <li class="nav-item"><a class="nav-link" href="cerliani.html">Cerliani</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="juki.html">Juki</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+            <a href="#" class="btn btn-search"><i class="fa-solid fa-magnifying-glass me-2"></i>Search</a>
+        </div>
+    </div>
+</nav>
+
+<!-- =============================================
+     HERO
+============================================= -->
+<header class="hero-carousel">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h1 class="hero-title text-white mb-4">Juki Industrial<br>Sewing Machines</h1>
+                <p class="lead text-white opacity-75 mb-4">
+                    Precision Japanese Engineering — Trusted by Garment Factories Worldwide
+                </p>
+                <a href="#products" class="btn btn-light btn-lg rounded-pill fw-bold px-5" style="color:var(--smx-blue);">
+                    <i class="fa-solid fa-arrow-down me-2"></i>View Products
+                </a>
+            </div>
+            <div class="col-lg-6 text-center d-none d-lg-block" data-aos="fade-left">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2021/10/SC/SD/VY/4047003/juki-ddl-8700-industrial-sewing-machine-500x500.jpg"
+                     alt="Juki Industrial Machine" class="machine-img img-fluid"
+                     onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- =============================================
+     INTRO STRIP — green, exact cerliani.html
+============================================= -->
+<div class="intro-strip">
+    <div class="container">
+        <div class="row text-center g-3">
+            <div class="col-6 col-md-3 intro-item" data-aos="fade-up" data-aos-delay="50">
+                <i class="fa-solid fa-flag mb-2 d-block"></i>
+                <h6>Made in Japan</h6>
+                <p>Genuine Juki Machines</p>
+            </div>
+            <div class="col-6 col-md-3 intro-item" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-circle-check mb-2 d-block"></i>
+                <h6>ISO Certified</h6>
+                <p>Industry Standard Quality</p>
+            </div>
+            <div class="col-6 col-md-3 intro-item" data-aos="fade-up" data-aos-delay="150">
+                <i class="fa-solid fa-truck-fast mb-2 d-block"></i>
+                <h6>Pan-India Delivery</h6>
+                <p>Fast & Safe Shipping</p>
+            </div>
+            <div class="col-6 col-md-3 intro-item" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-headset mb-2 d-block"></i>
+                <h6>After-Sales Support</h6>
+                <p>Dedicated Service Team</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =============================================
+     ABOUT JUKI
+============================================= -->
+<section class="about-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="img-showcase">
+                    <img src="https://m.media-amazon.com/images/I/51EDwHpemML._AC_UF894,1000_QL80_.jpg"
+                         alt="Juki Machine"
+                         onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2021/10/SC/SD/VY/4047003/juki-ddl-8700-industrial-sewing-machine-500x500.jpg'">
+                    <div class="img-overlay-badge"><i class="fa-solid fa-industry me-2"></i>Industrial Grade</div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <span class="section-label">About Juki</span>
+                <div class="accent-bar"></div>
+                <h2 class="fw-bold mb-4" style="font-size:2rem; color:var(--smx-dark);">
+                    Japan's No.1 Industrial<br>Sewing Machine Brand
+                </h2>
+                <p style="font-size:0.92rem; color:#666; line-height:1.8;" class="mb-3">
+                    Juki Corporation, founded in 1938 in Japan, is the world's leading manufacturer of industrial sewing machines. Trusted by garment factories across 170+ countries, Juki machines are synonymous with speed, reliability, and precision stitch quality.
+                </p>
+                <p style="font-size:0.92rem; color:#666; line-height:1.8;" class="mb-4">
+                    SMX India is a proud distributor of Juki machines in Mumbai and across India, offering the full range from high-speed lockstitch to specialized overlock, bartack, and computerized machines.
+                </p>
+                <div class="d-flex gap-4 flex-wrap">
+                    <div>
+                        <h4 class="fw-bold mb-0" style="color:var(--smx-blue);">85+</h4>
+                        <small style="color:#888;">Years of Innovation</small>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold mb-0" style="color:var(--smx-blue);">170+</h4>
+                        <small style="color:#888;">Countries Served</small>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold mb-0" style="color:var(--smx-blue);">500+</h4>
+                        <small style="color:#888;">Machine Models</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     FILTER BAR
+============================================= -->
+<div class="filter-bar" id="products">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <div class="d-flex gap-2 flex-wrap">
+            <button class="filter-btn active" onclick="filterCards('all', this)">All Products</button>
+            <button class="filter-btn" onclick="filterCards('lockstitch', this)">Lockstitch</button>
+            <button class="filter-btn" onclick="filterCards('overlock', this)">Overlock</button>
+            <button class="filter-btn" onclick="filterCards('bartack', this)">Bartack</button>
+            <button class="filter-btn" onclick="filterCards('special', this)">Special Purpose</button>
+        </div>
+        <span class="results-count" id="results-count">Showing 8 products</span>
+    </div>
+</div>
+
+<!-- =============================================
+     PRODUCT GRID
+============================================= -->
+<section class="product-section">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- 1. DDL-9000C -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="lockstitch" data-aos="fade-up" data-aos-delay="50">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag lockstitch">Lockstitch</span>
+                        <img src="https://5.imimg.com/data5/XB/OA/MY-47969317/screen-shot-2018-02-21-at-9-16-45-pm-500x500.png"
+                             alt="Juki DDL-9000C"
+                             onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2021/10/SC/SD/VY/4047003/juki-ddl-8700-industrial-sewing-machine-500x500.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>Juki DDL-9000C</h3>
+                        <p>High-speed computerized lockstitch machine with automatic thread trimmer. Speed: 5,500 SPM. Ideal for light to medium weight fabrics.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. DDL-8700 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="lockstitch" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag lockstitch">Lockstitch</span>
+                        <img src="https://m.media-amazon.com/images/I/51NTX4GbnwL._AC_UF894,1000_QL80_.jpg"
+                             alt="Juki DDL-8700"
+                             onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2021/10/SC/SD/VY/4047003/juki-ddl-8700-industrial-sewing-machine-500x500.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>Juki DDL-8700</h3>
+                        <p>High-speed 1-needle lockstitch machine with energy-saving direct-drive motor. Speed: 5,500 SPM. Low vibration and noise operation.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. MO-6814S Overlock -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="overlock" data-aos="fade-up" data-aos-delay="150">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag overlock">Overlock</span>
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2021/11/KN/KS/GX/9180629/juki-mo-6814-sewing-machine-500x500.jpg"
+                             alt="Juki MO-6814S"
+                             onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2021/10/SC/SD/VY/4047003/juki-ddl-8700-industrial-sewing-machine-500x500.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>Juki MO-6814S</h3>
+                        <p>High-speed 4-thread overlock/safety stitch machine. Speed: 7,000 SPM. Exceptional seam strength for knitwear and sportswear applications.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. LBH-1790 Buttonhole -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="special" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag special">Special Purpose</span>
+                        <img src="https://apparelresources.com/wp-content/uploads/2014/11/juki1-copy.jpg"
+                             alt="Juki LBH-1790"
+                             onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2021/10/SC/SD/VY/4047003/juki-ddl-8700-industrial-sewing-machine-500x500.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>Juki LBH-1790</h3>
+                        <p>Computerized buttonhole machine for shirts and trousers. Supports up to 30 stitch patterns. Precise and consistent buttonhole quality.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. MB-1800 Button Sewing -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="special" data-aos="fade-up" data-aos-delay="250">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag special">Special Purpose</span>
+                        <img src="https://www.juki.co.jp/industrial_e/admin/pdata/productphoto/20210113_071219_01.jpg"
+                             alt="Juki MB-1800"
+                             onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2021/10/SC/SD/VY/4047003/juki-ddl-8700-industrial-sewing-machine-500x500.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>Juki MB-1800</h3>
+                        <p>Button sewing machine for 2-hole and 4-hole buttons. Fully computerized with 10 built-in patterns. Wrapping and fastening functions included.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. LK-1900 Bartack -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="bartack" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag bartack">Bartack</span>
+                        <img src="https://cdn.wotol.com/xVK3qz05aNbarH0uFvkL3_kF0XM=/fit-in/750x750/media%2Fpictures%2F95e%2F95e12bc6-78a3-4a82-96f8-9bbe689bd3d2.jpeg"
+                             alt="Juki LK-1900"
+                             onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2021/10/SC/SD/VY/4047003/juki-ddl-8700-industrial-sewing-machine-500x500.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>Juki LK-1900A</h3>
+                        <p>Computerized high-speed pattern tacking machine. 28 built-in bartack patterns. Ideal for belt loops, pocket corners, and zipper reinforcement.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. MO-3616 Overlock -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="overlock" data-aos="fade-up" data-aos-delay="350">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag overlock">Overlock</span>
+                        <img src="https://images.finncdn.no/dynamic/1280w/item/433400568/1b524538-dbbe-41f1-9763-0a98c140de01"
+                             alt="Juki MO-3616"
+                             onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2021/10/SC/SD/VY/4047003/juki-ddl-8700-industrial-sewing-machine-500x500.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>Juki MO-3616</h3>
+                        <p>3-thread overlock machine with differential feed. Speed: 6,500 SPM. Perfect for elasticated seams, rolled hem, and knit fabric edge finishing.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. DDL-8000A -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-item" data-category="lockstitch" data-aos="fade-up" data-aos-delay="400">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="prod-tag lockstitch">Lockstitch</span>
+                        <img src="https://5.imimg.com/data5/ZF/SA/IV/SELLER-17369446/juki-ddl-8000a-series-direct-drive-1-needle-auto-lifter-motor-driven.jpg"
+                             alt="Juki DDL-8000A"
+                             onerror="this.src='https://5.imimg.com/data5/SELLER/Default/2021/10/SC/SD/VY/4047003/juki-ddl-8700-industrial-sewing-machine-500x500.jpg'">
+                    </div>
+                    <div class="product-body">
+                        <h3>Juki DDL-8000A</h3>
+                        <p>Automatic 1-needle lockstitch machine with thread trimmer and presser foot lifter. Equipped with built-in panel for easy operation setting.</p>
+                        <a href="#" class="btn-enquire">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /row -->
+    </div>
+</section>
+
+<!-- =============================================
+     WHY JUKI — dark banner (exact style cerliani)
+============================================= -->
+<section class="why-banner">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="section-label" style="color:var(--smx-cyan);">The Juki Difference</span>
+            <h2 class="fw-bold" style="font-size:2rem;">Built for Industrial Performance</h2>
+        </div>
+        <div class="row g-0 text-center">
+            <div class="col-md-3 why-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="why-icon mx-auto"><i class="fa-solid fa-bolt-lightning"></i></div>
+                <h6>High Speed</h6>
+                <p>Up to 5,500–8,000 SPM depending on model. Consistent stitching at peak speeds without skips.</p>
+            </div>
+            <div class="col-md-3 why-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="why-icon mx-auto"><i class="fa-solid fa-microchip"></i></div>
+                <h6>Smart Technology</h6>
+                <p>Computerized direct-drive motors for energy savings, lower noise, and precision stitch control.</p>
+            </div>
+            <div class="col-md-3 why-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="why-icon mx-auto"><i class="fa-solid fa-wrench"></i></div>
+                <h6>Low Maintenance</h6>
+                <p>Self-lubricating components and automatic oiling systems reduce downtime and service costs.</p>
+            </div>
+            <div class="col-md-3 why-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="why-icon mx-auto"><i class="fa-solid fa-puzzle-piece"></i></div>
+                <h6>Wide Application</h6>
+                <p>From delicate silks to heavy denim — Juki has a specialized machine for every fabric and use case.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     FEATURES STRIP — green (exact cerliani.html)
+============================================= -->
+<section class="features-strip">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-md-4 fstrip-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="fstrip-icon"><i class="fa-solid fa-globe"></i></div>
+                <h6 class="fw-bold mb-1">Authorized Distributor</h6>
+                <p class="small opacity-75 mb-0">Sourcing genuine Juki machines directly from Japan</p>
+            </div>
+            <div class="col-md-4 fstrip-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="fstrip-icon"><i class="fa-solid fa-gear"></i></div>
+                <h6 class="fw-bold mb-1">Since 1970 Sewing Solutions</h6>
+                <p class="small opacity-75 mb-0">Decades of expertise in industrial sewing machines</p>
+            </div>
+            <div class="col-md-4 fstrip-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="fstrip-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h6 class="fw-bold mb-1">Results You Can Trust</h6>
+                <p class="small opacity-75 mb-0">98% customer satisfaction across India</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     FOOTER — exact from cerliani.html
+============================================= -->
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="row g-5">
+            
+            <div class="col-lg-4 ">
+                <!-- Logo Instead of Text -->
+                <img src="smx1.png" alt="SMX India Logo" style="width:150px; ">
+
+                <p class="opacity-75 mt-3">
+                    Leading the Indian market with premium industrial sewing and embroidery technology since 1970.
+                </p>
+
+                <div class="d-flex gap-3 mt-4">
+                    <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 footer-links">
+                <h6 class="footer-heading">Company</h6>
+                <a href="#">About Us</a>
+                <a href="#brands">Our Brands</a>
+                <a href="#">Contact</a>
+            </div>
+
+            <div class="col-lg-6 footer-contact-info">
+                <h6 class="footer-heading">Support</h6>
+                <p class="mb-2"><i class="fa-solid fa-envelope me-2"></i> Smxindia15@gmail.com</p>
+                <p class="mb-2"><i class="fa-solid fa-phone me-2"></i> 7506625436 / 9324613436</p>
+                <p class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>
+                    The Tarun Plastic Estate, Andheri East,<br> Mumbai, Maharashtra 400069
+                </p>
+            </div>
+
+        </div>
+    </div>
+</footer>
+<style>
+    .main-footer img {
+    max-width: 100px;
+    height: auto;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });
+
+    function filterCards(category, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const items = document.querySelectorAll('.product-item');
+        let count = 0;
+        items.forEach(item => {
+            const match = category === 'all' || item.dataset.category === category;
+            item.style.display = match ? '' : 'none';
+            if (match) count++;
+        });
+        document.getElementById('results-count').textContent =
+            `Showing ${count} product${count !== 1 ? 's' : ''}`;
+    }
+</script>
+</body>
+</html>
